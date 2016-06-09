@@ -72,12 +72,9 @@ set (CMAKE_CXX_OSX_COMPATIBILITY_VERSION_FLAG "${CMAKE_C_OSX_COMPATIBILITY_VERSI
 set (CMAKE_CXX_OSX_CURRENT_VERSION_FLAG "${CMAKE_C_OSX_CURRENT_VERSION_FLAG}")
 
 
-# This was required for the CFLAG to be set in the project settings.
-set (CMAKE_XCODE_ATTRIBUTE_OTHER_CFLAGS "-fembed-bitcode")
+# This was required for Other C++ Flags to be set for enabling bitcode in a static lib.
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fembed-bitcode")
 
-# Hidden visibilty is required for cxx on iOS 
-set (CMAKE_C_FLAGS_INIT "-fembed-bitcode")
-set (CMAKE_CXX_FLAGS_INIT "-fvisibility=hidden -fvisibility-inlines-hidden")
 
 set (CMAKE_C_LINK_FLAGS "-Wl,-search_paths_first ${CMAKE_C_LINK_FLAGS}")
 set (CMAKE_CXX_LINK_FLAGS "-Wl,-search_paths_first ${CMAKE_CXX_LINK_FLAGS}")
